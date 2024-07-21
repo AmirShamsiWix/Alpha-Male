@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha-Male</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex flex-col h-screen">
+    <!-- Navbar -->
+    <nav class="p-4 bg-primary" style="background-color: rgb(255 248 141/var(--tw-bg-opacity));">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-black text-lg font-semibold"><img class="h-9 object-contain" style="height: 25px;" alt="Alpha-Male" src="logo.png" /></a>
+            <div class="block lg:hidden">
+                <button id="nav-toggle" class="text-black focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="nav-menu" class="hidden lg:flex lg:items-center lg:space-x-4">
+                <a href="/" class="text-black mr-4">Home</a>
+                <a href="erectile-dysfunction.html" class="text-black">Erectile Dysfunction</a>
+            </div>
+        </div>
+        <div id="mobile-nav-menu" class="lg:hidden hidden">
+            <a href="/" class="block text-black p-4 border-t border-gray-200">Home</a>
+            <a href="erectile-dysfunction.html" class="block text-black p-4 border-t border-gray-200">Erectile Dysfunction</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex-grow flex items-center justify-center">
+        <div class="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
+            <div id="quiz-container">
+                <!-- Questions will be inserted here by JavaScript -->
+            </div>
+            <div class="flex justify-between mt-4">
+                <button id="previous-button" class="bg-gray-500 text-white px-4 py-2 rounded hidden">Previous</button>
+                <button id="next-button" class="bg-blue-500 text-white px-4 py-2 rounded hidden">Next</button>
+            </div>
+            <button id="submit-button" class="mt-4 bg-green-500 text-white px-4 py-2 rounded hidden">Submit</button>
+        </div>
+    </div>
+    <div class="flex justify-center bg-primary pb-9 pt-24 sm:py-9" style="background-color: rgb(255 248 141/var(--tw-bg-opacity));">
+        <div class="flex flex-col px-5">
+            <div class="flex flex-col gap-10 sm:flex-row sm:gap-[3.56rem] lg:gap-[4.56rem]">
+                <div class="flex flex-col justify-center gap-[2.41rem]"><img class="h-9 object-contain" alt="Alpha-Male" src="logo.png" /></div>
+                <div class="flex flex-col gap-10 sm:gap-[1.06rem]">
+                    <div class="flex flex-col gap-4 sm:flex-row sm:gap-8"><a class="text-center font-gtAmericaMono text-xs font-normal text-black sm:text-left" href="terms.html">Terms &amp; Conditions</a><a class="text-center font-gtAmericaMono text-xs font-normal text-black sm:text-left" href="privacy-policy.html">Privacy Policy</a>
+                        <a class="text-center font-gtAmericaMono text-xs font-normal text-black sm:text-left" href="telehealth-consent.html">Telehealth Consent</a>
+                    </div>
+                    <div class="flex flex-row items-center justify-center gap-[1.2rem] sm:justify-start">
+                        <p class="font-gtAmericaMono text-sm font-normal text-black">© 2024 Alpha-Male. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8">
+                <p class="font-dinPro text-xs leading-relaxed"><strong class="font-bold">Disclaimer: </strong>Alpha-Male is not a healthcare provider. Alpha-Male offers a technology platform for registered users to access specific products and services sold or offered by third-party healthcare providers,
+                    physicians, pharmacies, or other vendors. Alpha-Male does not provide medical advice or care, nor does it supervise or control the physicians or pharmacists who provide services. Users are not entering into a patient-provider relationship
+                    with Alpha-Male and the information available on the website is not intended to substitute professional medical advice, diagnosis, or treatment. Certain products are available only if prescribed after an online consultation with a
+                    licensed healthcare provider. Specific services are only available to individuals located in certain states and may be offered on a subscription basis that renews automatically. The images used on the website are for reference only
+                    and may not reflect the actual configuration of the product. The Final cost to the customer will be determined by product and subscription plan.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [{
+            question: "How often do you have difficulty obtaining or maintaining an erection?",
+            options: ["Every time", "more than half of the time", "sometime", "never"]
+        }, {
+            question: "Are you able to get erections?",
+            options: ["Yes", "No"]
+        }, {
+            question: "How long have you been having difficulty with erections?",
+            options: ["Less than 6 months", "More than 6 months"]
+        }, {
+            question: "Have you ever used medication to help with ED?",
+            options: ["Yes", "No"]
+        }, {
+            question: "What dosage of Sildenafil (Viagra® or generic) did you previously take?",
+            options: ["25 mg", "50 mg", "100 mg"]
+        }, {
+            question: "Has Sildenafil (Viagra® or generic) worked for you?",
+            options: ["Yes, i would attempt this medication again at the same dose", "Yes, but i would like to try a higher dose", "Yes, but i would like to try a lower dose", "No, i would prefer to try another medication"]
+        }, {
+            question: "Do you feel like you ejaculate too quickly during intercourse or before intercourse?",
+            options: ["Yes", "No"]
+        }, {
+            question: "Do you suffer from problems with your blood pressure, or have you ever taken medication for blood pressure control?",
+            options: ["Yes", "No"]
+        }, {
+            question: "Do you currently have any medical issue like Diabetes, HIV, Blood Pressure, etc?",
+            options: ["Yes", "No"]
+        }, {
+            question: "Do you suffer from any of these symptoms, or have you noticed any of these issues with your penis?",
+            options: ["Peyronie's disease or unusual bending of the penis", "Painful erections or painful ejaculation", "Both", "None"]
+        }, {
+            question: "Any other medical history or surgeries you haven't shared with us?",
+            options: ["Yes", "No"]
+        }, {
+            question: "Do you take any prescribed or over the counter medications, including vitamins and supplements?",
+            options: ["Yes", "No"]
+        }, {
+            question: "Are you allergic to any medications?",
+            options: ["Yes", "No"]
+        }, {
+            question: "Do you use any of the following?",
+            options: ["Smoking", "Drinking", "Drugs", "None", "Smoking and Drinking", "Smoking and Drugs", "Drinking and Drugs"]
+        }, {
+            question: "What gender do you identify with?",
+            options: ["Man", "Woman", "Transgender Male", "Transgender Female", "Prefer not to say"]
+        }];
+
+        let currentQuestionIndex = 0;
+        const answers = {};
+
+        const quizContainer = document.getElementById('quiz-container');
+        const nextButton = document.getElementById('next-button');
+        const previousButton = document.getElementById('previous-button');
+        const submitButton = document.getElementById('submit-button');
+
+        function showQuestion(index) {
+            const questionData = questions[index];
+            quizContainer.innerHTML = `
+                <h2 class="text-xl font-semibold mb-4">${questionData.question}</h2>
+                <form id="options-form" class="space-y-2">
+                    ${questionData.options.map((option, i) => `
+                        <label class="block">
+                            <input type="radio" name="option" value="${option}" class="mr-2">
+                            ${option}
+                        </label>
+                    `).join('')}
+                </form>
+            `;
+            nextButton.classList.add('hidden');
+            previousButton.classList.toggle('hidden', index === 0);
+        }
+
+        quizContainer.addEventListener('change', (e) => {
+            if (e.target.name === 'option') {
+                nextButton.classList.remove('hidden');
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            const selectedOption = document.querySelector('input[name="option"]:checked').value;
+            answers[questions[currentQuestionIndex].question] = selectedOption;
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                showContactForm();
+            }
+        });
+
+        previousButton.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+            }
+        });
+
+        function showContactForm() {
+            quizContainer.innerHTML = `
+                <h2 class="text-xl font-semibold mb-4">Please provide your contact information</h2>
+                <form id="contact-form" class="space-y-4">
+                    <label class="block">
+                        <span class="text-gray-700">Phone Number</span>
+                        <input type="text" id="phone" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="123-456-7890">
+                    </label>
+                    <label class="block">
+                        <span class="text-gray-700">Email Address</span>
+                        <input type="email" id="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="you@example.com">
+                    </label>
+                </form>
+            `;
+            previousButton.classList.add('hidden');
+            nextButton.classList.add('hidden');
+            submitButton.classList.remove('hidden');
+        }
+
+        submitButton.addEventListener('click', () => {
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            if (phone && email) {
+                answers.contact = {
+                    phone,
+                    email
+                };
+                showLoader();
+                setTimeout(() => {
+                    hideLoader();
+                    showSubmitMessage();
+                    console.log(answers);
+                }, 2000);
+            } else {
+                alert('Please fill in both your phone number and email address.');
+            }
+        });
+
+        function showLoader() {
+            quizContainer.innerHTML = `
+                <div class="flex items-center justify-center">
+                    <svg class="animate-spin h-10 w-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8h8a8 8 0 01-8 8v-8H4z"></path>
+                    </svg>
+                </div>
+            `;
+            submitButton.classList.add('hidden');
+        }
+
+        function hideLoader() {
+            submitButton.classList.remove('hidden');
+        }
+
+        function showSubmitMessage() {
+            submitButton.classList.add('hidden');
+            quizContainer.innerHTML = `
+                <h2 class="text-xl font-semibold mb-4">Thank you for submitting the quiz!</h2>
+                <p class="text-gray-700">We have received your answers and contact information.</p>
+            `;
+        }
+
+        // Initialize the first question
+        showQuestion(currentQuestionIndex);
+
+        // Hamburger menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
