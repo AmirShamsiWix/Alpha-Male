@@ -6,6 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha-Male</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .question-container {
+            display: none;
+        }
+        
+        .question-container.active {
+            display: block;
+        }
+        
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* White with opacity */
+            z-index: 10;
+            display: none;
+            /* Initially hidden */
+        }
+        
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            border: 6px solid #f3f3f3;
+            /* Light grey */
+            border-top: 6px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            z-index: 11;
+            display: none;
+            /* Initially hidden */
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
 </head>
 
 <body class="bg-gray-100 flex flex-col h-screen">
@@ -34,14 +84,297 @@
     <!-- Main Content -->
     <div class="flex-grow flex items-center justify-center">
         <div class="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
+
             <div id="quiz-container">
-                <!-- Questions will be inserted here by JavaScript -->
+                <div id="submission-message-popup" style="display: none;color: rgb(0, 0, 0);" class="question-container active">
+                    <h1>Thank You!!! We will get back to you soon</h1>
+                </div>
+                <form id="survey-form" method="POST" action="https://script.google.com/macros/s/AKfycbxSmpe7sSJbeFzlXnvyBQ-hTxw8lxUAT0e5PSEpEz0QXGn-FvveHt8wxxqMCS7deTZL0Q/exec" class="space-y-2 cta-form gform">
+                    <div class="question-container active">
+                        <h3>Question_1 : How often do you have difficulty obtaining or maintaining an erection?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_1" value="Every time"> Every time</label><br>
+                            <label><input type="radio" name="Question_1" value="more than half of the time"> more than half of the time</label><br>
+                            <label><input type="radio" name="Question_1" value="sometime"> sometime</label><br>
+                            <label><input type="radio" name="Question_1" value="never"> never</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_2 : Are you able to get erections?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_2" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_2" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_3: How long have you been having difficulty with erections?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_3" value="Less than 6 months"> Less than 6 months</label><br>
+                            <label><input type="radio" name="Question_3" value="More than 6 months"> More than 6 months</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_4: Have you ever used medication to help with ED?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_4" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_4" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_5: What dosage of Sildenafil (Viagra® or generic) did you previously take?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_5" value="25 mg"> 25 mg</label><br>
+                            <label><input type="radio" name="Question_5" value="50 mg"> 50 mg</label><br>
+                            <label><input type="radio" name="Question_5" value="100 mg"> 100 mg</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_6: Has Sildenafil (Viagra® or generic) worked for you?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_6" value="Yes, i would attempt this medication again at the same dose"> Yes, I would attempt this medication again at the same dose</label><br>
+                            <label><input type="radio" name="Question_6" value="Yes, but i would like to try a higher dose"> Yes, but I would like to try a higher dose</label><br>
+                            <label><input type="radio" name="Question_6" value="Yes, but i would like to try a lower dose"> Yes, but I would like to try a lower dose</label><br>
+                            <label><input type="radio" name="Question_6" value="No, i would prefer to try another medication"> No, I would prefer to try another medication</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_7: Do you feel like you ejaculate too quickly during intercourse or before intercourse?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_7" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_7" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_8: Do you suffer from problems with your blood pressure, or have you ever taken medication for blood pressure control?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_8" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_8" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_9: Do you currently have any medical issue like Diabetes, HIV, Blood Pressure, etc?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_9" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_9" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_10: Do you suffer from any of these symptoms, or have you noticed any of these issues with your penis?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_10" value="Peyronie's disease or unusual bending of the penis"> Peyronie's disease or unusual bending of the penis</label><br>
+                            <label><input type="radio" name="Question_10" value="Painful erections or painful ejaculation"> Painful erections or painful ejaculation</label><br>
+                            <label><input type="radio" name="Question_10" value="Both"> Both</label><br>
+                            <label><input type="radio" name="Question_10" value="None"> None</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_11: Any other medical history or surgeries you haven't shared with us?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_11" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_11" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_12: Do you take any prescribed or over-the-counter medications, including vitamins and supplements?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_12" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_12" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_13: Are you allergic to any medications?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_13" value="Yes"> Yes</label><br>
+                            <label><input type="radio" name="Question_13" value="No"> No</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_14: Do you use any of the following?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_14" value="Smoking"> Smoking</label><br>
+                            <label><input type="radio" name="Question_14" value="Drinking"> Drinking</label><br>
+                            <label><input type="radio" name="Question_14" value="Drugs"> Drugs</label><br>
+                            <label><input type="radio" name="Question_14" value="None"> None</label><br>
+                            <label><input type="radio" name="Question_14" value="Smoking and Drinking"> Smoking and Drinking</label><br>
+                            <label><input type="radio" name="Question_14" value="Smoking and Drugs"> Smoking and Drugs</label><br>
+                            <label><input type="radio" name="Question_14" value="Drinking and Drugs"> Drinking and Drugs</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_15: What gender do you identify with?</h3>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_15" value="Man"> Man</label><br>
+                            <label><input type="radio" name="Question_15" value="Woman"> Woman</label><br>
+                            <label><input type="radio" name="Question_15" value="Transgender Male"> Transgender Male</label><br>
+                            <label><input type="radio" name="Question_15" value="Transgender Female"> Transgender Female</label><br>
+                            <label><input type="radio" name="Question_15" value="Prefer not to say"> Prefer not to say</label>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_16: Which treatment option do you prefer?</h3>
+                        <small>Both treatments are effective and FDA-approved. Pick the one that best matches your lifestyle.</small>
+                        <div class="options-container">
+                            <label><input type="radio" name="Question_16" value="As needed"> As needed <small>Take 30-60 minutes before sex</small></label><br>
+                            <label><input type="radio" name="Question_16" value="Daily"> Daily <small>Once daily and be ready anytime </small></label><br>
+                        </div>
+                    </div>
+                    <div class="question-container">
+                        <h3>Question_17: What ED medication would you like?</h3>
+                        <small>Both treatments are effective and FDA-approved. Pick the one that best matches your lifestyle.</small>
+                        <div class="options-container">
+                            <br>
+                            <label><input type="radio" name="Question_17" value="Generic Viagra®"> Generic Viagra® (Sildenafil) 
+                                <div class="mb-2 flex flex-row gap-x-3"><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Most popular</span><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Cost effective</span></div>
+                                <div><ul>
+                                    <li>Same active Ingredients as <strong>Viagra®</strong>.</li>
+                                    <li>Take <strong>30–60 minutes</strong> before sexual activity.</li>
+                                    <li>Effects last up to <strong>6 hours.</strong></li>
+                                    </ul></div>
+                                    <p><span>$99</span> (18 tablets at $5.5 per tablet)</p>
+                            </label>
+                            <br>
+
+                            <label><input type="radio" name="Question_17" value="Generic Cialis®"> Generic Cialis® (Tadalafil) 
+                                <div class="mb-2 flex flex-row gap-x-3"><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Very popular</span><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Cost effective</span></div>
+                                <div><ul>
+                                    <li>Same active Ingredients as <strong>Cialis®</strong>.</li>
+                                    <li>Take <strong>30–60 minutes</strong> before sexual activity.</li>
+                                    <li>Effects last up to <strong>36 hours.</strong></li>
+                                    </ul></div>
+                                    <p><span>$117</span> (18 tablets at $6.5 per tablet)</p>
+                            </label>
+                            <br>
+
+
+                            <label><input type="radio" name="Question_17" value="Viagra®"> Viagra® 
+                                <div class="mb-2 flex flex-row gap-x-3">
+                                    <span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Branded</span>
+                                </div>
+                                <div><ul>
+                                    <li>The original ED treatment.</li>
+                                    <li>Take <strong>30–60 minutes</strong> before sexual activity.</li>
+                                    <li>Effects last up to <strong>6 hours.</strong></li>
+                                    </ul></div>
+                                    <p><span>560</span> (4 tablets at $140 per tablet)</p>
+                            </label>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <label class="block">
+                            <span class="text-gray-700">First Name</span>
+                            <input type="text" id="firstName" name="First name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Jack">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Last Name</span>
+                            <input type="text" id="lastName" name="last name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Allison">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Address</span>
+                            <input type="text" id="address" name="Address" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Start typing your address">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Apt/Floor/Suite</span>
+                            <input type="text" id="apt" name="Apt" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Apt/Floor/Suite">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Zip Code</span>
+                            <input type="text" id="zip-code" name="zip code" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Zip Code">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Date Of Birth</span>
+                            <input type="date" id="dob" name="DOB" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="DOB">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Phone Number</span>
+                            <input type="phone" id="phone" name="phone" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="123-456-7890" required>
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700">Email Address</span>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="you@example.com" required>
+                        </label>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="button" id="prev-button" class="bg-gray-500 text-white px-4 py-2 rounded" style="display: none;">Previous</button>
+                        <button type="button" id="next-button" class="bg-blue-500 text-white px-4 py-2 rounded">Next</button>
+                        <button type="submit" id="submit-button" class="bg-green-500 text-white px-4 py-2 rounded" style="display: none;">Submit</button>
+                    </div>
+                </form>
+
+                <div class="step-description" style="color: white;" id="my-form-status-popup"></div>
+                <div class="loader-overlay" id="loader-overlay-popup"></div>
+                <div class="loader" id="loader-popup"></div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const form = document.getElementById('survey-form');
+                        const questions = form.getElementsByClassName('question-container');
+                        const prevButton = document.getElementById('prev-button');
+                        const nextButton = document.getElementById('next-button');
+                        const submitButton = document.getElementById('submit-button');
+                        let currentQuestion = 0;
+
+                        function showQuestion(index) {
+                            Array.from(questions).forEach((question, idx) => {
+                                question.classList.toggle('active', idx === index);
+                            });
+                            prevButton.style.display = index === 0 ? 'none' : 'inline-block';
+                            nextButton.style.display = index === questions.length - 1 ? 'none' : 'inline-block';
+                            submitButton.style.display = index === questions.length - 1 ? 'inline-block' : 'none';
+                        }
+
+                        nextButton.addEventListener('click', function() {
+                            if (currentQuestion < questions.length - 1) {
+                                currentQuestion++;
+                                showQuestion(currentQuestion);
+                            }
+                        });
+
+                        prevButton.addEventListener('click', function() {
+                            if (currentQuestion > 0) {
+                                currentQuestion--;
+                                showQuestion(currentQuestion);
+                            }
+                        });
+
+                        var loaderOverlayPopup = document.getElementById("loader-overlay-popup");
+                        var loaderPopup = document.getElementById("loader-popup");
+                        var submissionMessagePopup = document.getElementById("submission-message-popup");
+
+                        async function handleSubmit(event) {
+                            event.preventDefault();
+                            var status = document.getElementById("my-form-status-popup");
+                            loaderOverlayPopup.style.display = 'block'; // Display overlay
+                            loaderPopup.style.display = 'block'; // Display loader
+                            var data = new FormData(event.target);
+
+                            fetch(event.target.action, {
+                                method: form.method,
+                                body: data,
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            }).then(response => {
+                                loaderOverlayPopup.style.display = 'none';
+                                loaderPopup.style.display = 'none';
+                                form.style.display = 'none';
+                                submissionMessagePopup.style.display = 'block'; // Show submission message
+                            }).catch(error => {
+                                form.style.display = 'none';
+                                submissionMessagePopup.style.display = 'block'; // Show submission message
+                                submissionMessagePopup.innerHTML = 'Oops Something went wrong';
+                            });
+                        }
+                        form.addEventListener("submit", handleSubmit);
+
+
+                        showQuestion(currentQuestion);
+                    });
+                </script>
             </div>
-            <div class="flex justify-between mt-4">
-                <button id="previous-button" class="bg-gray-500 text-white px-4 py-2 rounded hidden">Previous</button>
-                <button id="next-button" class="bg-blue-500 text-white px-4 py-2 rounded hidden">Next</button>
-            </div>
-            <button id="submit-button" class="mt-4 bg-green-500 text-white px-4 py-2 rounded hidden">Submit</button>
+
         </div>
     </div>
     <div class="flex justify-center bg-primary pb-9 pt-24 sm:py-9" style="background-color: rgb(255 248 141/var(--tw-bg-opacity));">
@@ -68,167 +401,6 @@
     </div>
 
     <script>
-        const questions = [{
-            question: "How often do you have difficulty obtaining or maintaining an erection?",
-            options: ["Every time", "more than half of the time", "sometime", "never"]
-        }, {
-            question: "Are you able to get erections?",
-            options: ["Yes", "No"]
-        }, {
-            question: "How long have you been having difficulty with erections?",
-            options: ["Less than 6 months", "More than 6 months"]
-        }, {
-            question: "Have you ever used medication to help with ED?",
-            options: ["Yes", "No"]
-        }, {
-            question: "What dosage of Sildenafil (Viagra® or generic) did you previously take?",
-            options: ["25 mg", "50 mg", "100 mg"]
-        }, {
-            question: "Has Sildenafil (Viagra® or generic) worked for you?",
-            options: ["Yes, i would attempt this medication again at the same dose", "Yes, but i would like to try a higher dose", "Yes, but i would like to try a lower dose", "No, i would prefer to try another medication"]
-        }, {
-            question: "Do you feel like you ejaculate too quickly during intercourse or before intercourse?",
-            options: ["Yes", "No"]
-        }, {
-            question: "Do you suffer from problems with your blood pressure, or have you ever taken medication for blood pressure control?",
-            options: ["Yes", "No"]
-        }, {
-            question: "Do you currently have any medical issue like Diabetes, HIV, Blood Pressure, etc?",
-            options: ["Yes", "No"]
-        }, {
-            question: "Do you suffer from any of these symptoms, or have you noticed any of these issues with your penis?",
-            options: ["Peyronie's disease or unusual bending of the penis", "Painful erections or painful ejaculation", "Both", "None"]
-        }, {
-            question: "Any other medical history or surgeries you haven't shared with us?",
-            options: ["Yes", "No"]
-        }, {
-            question: "Do you take any prescribed or over the counter medications, including vitamins and supplements?",
-            options: ["Yes", "No"]
-        }, {
-            question: "Are you allergic to any medications?",
-            options: ["Yes", "No"]
-        }, {
-            question: "Do you use any of the following?",
-            options: ["Smoking", "Drinking", "Drugs", "None", "Smoking and Drinking", "Smoking and Drugs", "Drinking and Drugs"]
-        }, {
-            question: "What gender do you identify with?",
-            options: ["Man", "Woman", "Transgender Male", "Transgender Female", "Prefer not to say"]
-        }];
-
-        let currentQuestionIndex = 0;
-        const answers = {};
-
-        const quizContainer = document.getElementById('quiz-container');
-        const nextButton = document.getElementById('next-button');
-        const previousButton = document.getElementById('previous-button');
-        const submitButton = document.getElementById('submit-button');
-
-        function showQuestion(index) {
-            const questionData = questions[index];
-            quizContainer.innerHTML = `
-                <h2 class="text-xl font-semibold mb-4">${questionData.question}</h2>
-                <form id="options-form" class="space-y-2">
-                    ${questionData.options.map((option, i) => `
-                        <label class="block">
-                            <input type="radio" name="option" value="${option}" class="mr-2">
-                            ${option}
-                        </label>
-                    `).join('')}
-                </form>
-            `;
-            nextButton.classList.add('hidden');
-            previousButton.classList.toggle('hidden', index === 0);
-        }
-
-        quizContainer.addEventListener('change', (e) => {
-            if (e.target.name === 'option') {
-                nextButton.classList.remove('hidden');
-            }
-        });
-
-        nextButton.addEventListener('click', () => {
-            const selectedOption = document.querySelector('input[name="option"]:checked').value;
-            answers[questions[currentQuestionIndex].question] = selectedOption;
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion(currentQuestionIndex);
-            } else {
-                showContactForm();
-            }
-        });
-
-        previousButton.addEventListener('click', () => {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                showQuestion(currentQuestionIndex);
-            }
-        });
-
-        function showContactForm() {
-            quizContainer.innerHTML = `
-                <h2 class="text-xl font-semibold mb-4">Please provide your contact information</h2>
-                <form id="contact-form" class="space-y-4">
-                    <label class="block">
-                        <span class="text-gray-700">Phone Number</span>
-                        <input type="text" id="phone" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="123-456-7890">
-                    </label>
-                    <label class="block">
-                        <span class="text-gray-700">Email Address</span>
-                        <input type="email" id="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="you@example.com">
-                    </label>
-                </form>
-            `;
-            previousButton.classList.add('hidden');
-            nextButton.classList.add('hidden');
-            submitButton.classList.remove('hidden');
-        }
-
-        submitButton.addEventListener('click', () => {
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            if (phone && email) {
-                answers.contact = {
-                    phone,
-                    email
-                };
-                showLoader();
-                setTimeout(() => {
-                    hideLoader();
-                    showSubmitMessage();
-                    console.log(answers);
-                }, 2000);
-            } else {
-                alert('Please fill in both your phone number and email address.');
-            }
-        });
-
-        function showLoader() {
-            quizContainer.innerHTML = `
-                <div class="flex items-center justify-center">
-                    <svg class="animate-spin h-10 w-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8h8a8 8 0 01-8 8v-8H4z"></path>
-                    </svg>
-                </div>
-            `;
-            submitButton.classList.add('hidden');
-        }
-
-        function hideLoader() {
-            submitButton.classList.remove('hidden');
-        }
-
-        function showSubmitMessage() {
-            submitButton.classList.add('hidden');
-            quizContainer.innerHTML = `
-                <h2 class="text-xl font-semibold mb-4">Thank you for submitting the quiz!</h2>
-                <p class="text-gray-700">We have received your answers and contact information.</p>
-            `;
-        }
-
-        // Initialize the first question
-        showQuestion(currentQuestionIndex);
-
         // Hamburger menu toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -238,6 +410,9 @@
             mobileNavMenu.classList.toggle('hidden');
         });
     </script>
+
+
+
 </body>
 
 </html>
