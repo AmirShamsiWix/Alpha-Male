@@ -270,8 +270,9 @@
                             }).then(response => {
                                 loaderOverlayPopup.style.display = 'none';
                                 loaderPopup.style.display = 'none';
-                                form.style.display = 'none';
-                                submissionMessagePopup.style.display = 'block'; // Show submission message
+                                //form.style.display = 'none';
+                                //submissionMessagePopup.style.display = 'block'; // Show submission message
+                                window.location.href = 'paynow.html';
                             }).catch(error => {
                                 form.style.display = 'none';
                                 submissionMessagePopup.style.display = 'block'; // Show submission message
