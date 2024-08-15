@@ -255,7 +255,7 @@
                         <div class="question-container-8" id="month Oral Jellies" style="display: none;">
                             
                         </div>
-    
+                        <input type="text" hidden name="price" id="price">
 
                     </div>
 
@@ -370,6 +370,8 @@
                                     }
                                 }
                             }
+
+                            data.set("price",price);
 
                             localStorage.setItem('price', JSON.stringify(price));                            
                             
