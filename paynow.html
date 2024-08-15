@@ -96,12 +96,15 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             Amount
                         </label>
-                        <input id="payment-amount" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="Amount" required="" type="number" min="1" step="1" placeholder="Enter Payment Amount in USD $">
+                        <input disabled id="payment-amount" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="Amount" required="" type="number" min="1" step="1" placeholder="Enter Payment Amount in USD $">
                       </div>
                     <div id="paypal-button-container"></div>
 
                     <script>
 
+                        const amt = localStorage.getItem('price');
+                        const amountDiv = document.getElementById('payment-amount');
+                        amountDiv.value = amt;
                         const loaderOverlay = document.getElementById('loader-overlay');
                         const loader = document.getElementById('loader');
                         
@@ -127,10 +130,9 @@
 
 
                             createOrder: function(data, actions) {
-                                const amount = document.getElementById('payment-amount').value;
+                                const amount = localStorage.getItem('price');
                                 if (!amount || amount <= 0) {
-                                    displayMessage("Please enter a valid amount");
-                                    return;
+                                    amount = 249;
                                 }
                                 return actions.order.create({
                                     purchase_units: [{

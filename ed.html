@@ -91,7 +91,7 @@
                 </div>
                 <form id="survey-form" method="POST" action="https://script.google.com/macros/s/AKfycbxSmpe7sSJbeFzlXnvyBQ-hTxw8lxUAT0e5PSEpEz0QXGn-FvveHt8wxxqMCS7deTZL0Q/exec" class="space-y-2 cta-form gform">
                     <div class="question-container active">
-                        <h3>Question_1 : How often do you have difficulty obtaining or maintaining an erection?</h3>
+                        <h3>How often do you have difficulty obtaining or maintaining an erection?</h3>
                         <div class="options-container">
                             <label><input type="radio" name="Question_1" value="Every time"> Every time</label><br>
                             <label><input type="radio" name="Question_1" value="more than half of the time"> more than half of the time</label><br>
@@ -99,22 +99,24 @@
                             <label><input type="radio" name="Question_1" value="never"> never</label>
                         </div>
                     </div>
+
+                    
                     <div class="question-container">
-                        <h3>Question_2 : Are you able to get erections?</h3>
+                        <h3>Are you able to get erections?</h3>
                         <div class="options-container">
                             <label><input type="radio" name="Question_2" value="Yes"> Yes</label><br>
                             <label><input type="radio" name="Question_2" value="No"> No</label>
                         </div>
                     </div>
                     <div class="question-container">
-                        <h3>Question_7: Do you feel like you ejaculate too quickly during intercourse or before intercourse?</h3>
+                        <h3>Do you feel like you ejaculate too quickly during intercourse or before intercourse?</h3>
                         <div class="options-container">
                             <label><input type="radio" name="Question_7" value="Yes"> Yes</label><br>
                             <label><input type="radio" name="Question_7" value="No"> No</label>
                         </div>
                     </div>
                     <div class="question-container">
-                        <h3>Question_10: Do you suffer from any of these symptoms, or have you noticed any of these issues with your penis?</h3>
+                        <h3>Do you suffer from any of these symptoms, or have you noticed any of these issues with your penis?</h3>
                         <div class="options-container">
                             <label><input type="radio" name="Question_10" value="Peyronie's disease or unusual bending of the penis"> Peyronie's disease or unusual bending of the penis</label><br>
                             <label><input type="radio" name="Question_10" value="Painful erections or painful ejaculation"> Painful erections or painful ejaculation</label><br>
@@ -123,41 +125,88 @@
                         </div>
                     </div>
                     <div class="question-container">
-                        <h3>Question_13: Are you allergic to any medications?</h3>
+                        <h3>Are you allergic to any medications?</h3>
                         <div class="options-container">
                             <label><input type="radio" name="Question_13" value="Yes"> Yes</label><br>
                             <label><input type="radio" name="Question_13" value="No"> No</label>
                         </div>
                     </div>
-                    <div class="question-container">
-                        <h3>Question_17: What ED medication would you like?</h3>
+                    <div class="question-container" id="main-medicine">
+                        <h3>What ED medication would you like?</h3>
                         <small>Both treatments are effective and FDA-approved. Pick the one that best matches your lifestyle.</small>
                         <div class="options-container">
                             <br>
-                            <label><input type="radio" name="Question_17" value="Generic Viagra®"> Generic Viagra® (Sildenafil) 
+                            <label><input type="radio" name="Question_17" value="Generic Viagra"> Generic Viagra® (Sildenafil) 
                                 <div class="mb-2 flex flex-row gap-x-3"><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Most popular</span><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Cost effective</span></div>
                                 <div><ul>
                                     <li>Same active Ingredients as <strong>Viagra®</strong>.</li>
                                     <li>Take <strong>30–60 minutes</strong> before sexual activity.</li>
                                     <li>Effects last up to <strong>6 hours.</strong></li>
                                     </ul></div>
-                                    <p><span>$99</span> (18 tablets at $5.5 per tablet)</p>
+                                    <p> <span>50 Mg</span> , <span>100 Mg</span> , <span>150 Mg</span>, , <span>200 Mg</span> </p>
+
+                                    <p> (1 Month 30 Pills - <span>$99</span>)</p>
+                                    <p> (3 Month 90 Pills - <span>$249</span>)</p>
+
                             </label>
+
+                            <div class="question-container-1" id="mg Generic Viagra" style="display: none;" >
+                                <br>
+                                <h3>How Much Mg do you want?</h3>
+                                <div class="options-container">
+                                    <label><input type="radio" name="mg" value="50">50mg </label><br>
+                                    <label><input type="radio" name="mg" value="100">100mg </label><br>
+                                    <label><input type="radio" name="mg" value="150">150mg </label><br>
+                                    <label><input type="radio" name="mg" value="200">200mg </label><br>
+                                </div>
+                            </div>
+                            <div class="question-container-2" id="month Generic Viagra" style="display: none;">
+                                <br>
+
+                                <h3>For How Many Month do you want?</h3>
+                                <div class="options-container">
+                                    <label><input type="radio" name="month" value="1"> 1 Month</label><br>
+                                    <label><input type="radio" name="month" value="3"> 3 Months</label><br>
+                                </div>
+                            </div>
+
                             <br>
 
-                            <label><input type="radio" name="Question_17" value="Generic Cialis®"> Generic Cialis® (Tadalafil) 
+                            <label><input type="radio" name="Question_17" value="Generic Cialis"> Generic Cialis® (Tadalafil) 
                                 <div class="mb-2 flex flex-row gap-x-3"><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Very popular</span><span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Cost effective</span></div>
                                 <div><ul>
                                     <li>Same active Ingredients as <strong>Cialis®</strong>.</li>
                                     <li>Take <strong>30–60 minutes</strong> before sexual activity.</li>
                                     <li>Effects last up to <strong>36 hours.</strong></li>
                                     </ul></div>
-                                    <p><span>$117</span> (18 tablets at $6.5 per tablet)</p>
+                                    <p> <span>20 Mg</span> , <span>40 Mg</span> , <span>60 Mg</span> </p>
+
+                                    <p> (1 Month 30 Pills - <span>$99</span>)</p>
+                                    <p> (3 Month 90 Pills - <span>$249</span>)</p>
                             </label>
+
+                            <div class="question-container-3" id="mg Generic Cialis" style="display: none;">
+                                <br>
+                                <h3>How Much Mg do you want?</h3>
+                                <div class="options-container">
+                                    <label><input type="radio" name="mg" value="20">20mg </label><br>
+                                    <label><input type="radio" name="mg" value="40">40mg </label><br>
+                                    <label><input type="radio" name="mg" value="60">60mg </label><br>
+                                </div>
+                            </div>
+                            <div class="question-container-4" id="month Generic Cialis" style="display: none;">
+                                <br>
+                                <h3>For How Many Month do you want?</h3>
+                                <div class="options-container">
+                                    <label><input type="radio" name="month" value="1"> 1 Month</label><br>
+                                    <label><input type="radio" name="month" value="3"> 3 Months</label><br>
+                                </div>
+                            </div>
+
                             <br>
 
 
-                            <label><input type="radio" name="Question_17" value="Viagra®"> Viagra® 
+                            <label><input type="radio" name="Question_17" value="Viagra"> Viagra® 
                                 <div class="mb-2 flex flex-row gap-x-3">
                                     <span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Branded</span>
                                 </div>
@@ -166,12 +215,51 @@
                                     <li>Take <strong>30–60 minutes</strong> before sexual activity.</li>
                                     <li>Effects last up to <strong>6 hours.</strong></li>
                                     </ul></div>
-                                    <p><span>560</span> (4 tablets at $140 per tablet)</p>
+                                    <p> <span>20 Mg</span> , <span>50 Mg</span> , <span>75 Mg</span> </p>
+                                    <p> (1 Month 30 Pills - <span>$99</span>)</p>
+                                    <p> (2 Month 90 Pills - <span>$219</span>)</p>
+                            </label>
+
+                            <div class="question-container-5" id="mg Viagra" style="display: none;">
+                                <br>
+
+                                <h3>How Much Mg do you want?</h3>
+                                <div class="options-container">
+                                    <label><input type="radio" name="mg" value="20">20mg </label><br>
+                                    <label><input type="radio" name="mg" value="50">50mg </label><br>
+                                    <label><input type="radio" name="mg" value="75">75mg </label><br>
+                                </div>
+                            </div>
+                            <div class="question-container-6" id="month Viagra" style="display: none;">
+                                <br>
+                                <h3>For How Many Month do you want?</h3>
+                                <div class="options-container">
+                                    <label><input type="radio" name="month" value="1"> 1 Month</label><br>
+                                    <label><input type="radio" name="month" value="2"> 2 Months</label><br>
+                                </div>
+                            </div>
+                            <br>
+                            <label><input type="radio" name="Question_17" value="Oral Jellies"> Oral Jellies 
+                                <div class="mb-2 flex flex-row gap-x-3">
+                                    <span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-helvetica tracking-tight normal-case font-normal py-0.5 px-2 text-xs">Branded</span>
+                                </div>
+                                <p><span>1 Pack 11 Flavours </span> $149</p>
                             </label>
                             <br>
                         </div>
+
+                        <div class="question-container-7" id="mg Oral Jellies" style="display: none;">
+                           
+                        </div>
+    
+                        <div class="question-container-8" id="month Oral Jellies" style="display: none;">
+                            
+                        </div>
+    
+
                     </div>
 
+                    
                     <div class="question-container">
                         <label class="block">
                             <span class="text-gray-700">First Name</span>
@@ -212,6 +300,7 @@
                         <button type="button" id="next-button" class="bg-blue-500 text-white px-4 py-2 rounded">Next</button>
                         <button type="submit" id="submit-button" class="bg-green-500 text-white px-4 py-2 rounded" style="display: none;">Submit</button>
                     </div>
+                    </div>
                 </form>
 
                 <div class="step-description" style="color: white;" id="my-form-status-popup"></div>
@@ -236,19 +325,22 @@
                             submitButton.style.display = index === questions.length - 1 ? 'inline-block' : 'none';
                         }
 
-                        nextButton.addEventListener('click', function() {
+                        function goToNextQuestion() {
                             if (currentQuestion < questions.length - 1) {
                                 currentQuestion++;
                                 showQuestion(currentQuestion);
                             }
-                        });
+                        }
 
-                        prevButton.addEventListener('click', function() {
+                        function goToPrevQuestion() {
                             if (currentQuestion > 0) {
                                 currentQuestion--;
                                 showQuestion(currentQuestion);
                             }
-                        });
+                        }
+
+                        nextButton.addEventListener('click', goToNextQuestion);
+                        prevButton.addEventListener('click', goToPrevQuestion);
 
                         var loaderOverlayPopup = document.getElementById("loader-overlay-popup");
                         var loaderPopup = document.getElementById("loader-popup");
@@ -260,6 +352,27 @@
                             loaderOverlayPopup.style.display = 'block'; // Display overlay
                             loaderPopup.style.display = 'block'; // Display loader
                             var data = new FormData(event.target);
+                            var price = 0;
+                            var medicine = data.get("Question_17");
+                            if(medicine === "Viagra" || medicine === "Generic Viagra" || medicine === "Generic Cialis"){
+                                var month = data.get("month");
+                                if(medicine === "Generic Viagra" || medicine === "Generic Cialis"){
+                                    if(month == 1){
+                                        price = 99;
+                                    }else if(month == 3){
+                                        price = 249;
+                                    }
+                                }else if(medicine === "Viagra"){
+                                    if(month == 1){
+                                        price = 129;
+                                    }else if(month == 2){
+                                        price = 219;
+                                    }
+                                }
+                            }
+
+                            localStorage.setItem('price', JSON.stringify(price));                            
+                            
 
                             fetch(event.target.action, {
                                 method: form.method,
@@ -281,11 +394,32 @@
                         }
                         form.addEventListener("submit", handleSubmit);
 
+                        document.querySelectorAll('input[name="Question_17"]').forEach(radio => {
+                            radio.addEventListener('change', (event) => {                                   
+                                // Hide all follow-up question containers
+                                document.querySelectorAll('[id^="mg"]').forEach(container => container.style.display = 'none');
+                                document.querySelectorAll('[id^="month"]').forEach(container => container.style.display = 'none');
 
+                                const selectedValue = event.target.value;
+                                // Show the follow-up question containers based on the selected option
+                                document.getElementById(`mg ${selectedValue}`).style.display = 'block';
+                                document.getElementById(`month ${selectedValue}`).style.display = 'block';
+                            });
+                        });
                         showQuestion(currentQuestion);
                     });
                 </script>
+              
             </div>
+            <style>
+                .question-container {
+                    display: none;
+                }
+            
+                .question-container.active {
+                    display: block;
+                }
+            </style>
 
         </div>
     </div>
