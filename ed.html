@@ -423,14 +423,12 @@
                                 const selectedValue = event.target.value;
                                
                                 // Hide all follow-up question containers
-                                console.log(selectedValue);
                                 if(radio.checked){
                                     document.getElementById(`mg ${selectedValue}`).style.display = 'block';
                                     document.getElementById(`month ${selectedValue}`).style.display = 'block';
                                 }else{
-                                document.querySelectorAll('[id^="mg"]').forEach(container => container.style.display = 'none');
-                                document.querySelectorAll('[id^="month"]').forEach(container => container.style.display = 'none');
-
+                                    document.getElementById(`mg ${selectedValue}`).style.display = 'none';
+                                    document.getElementById(`month ${selectedValue}`).style.display = 'none';
                                 }                                
                             });
                         });
